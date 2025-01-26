@@ -80,38 +80,39 @@ internal class Program
             Console.Write("*");
             Thread.Sleep(100);
         }
-
-        for(int repe = 0; repe <= 4; repe++)
+        superior = 0;
+        inferior = 0;
+        for (int repe = 0; superior < Console.WindowWidth - 10 && inferior < Console.WindowHeight - 10; repe++)
         {
             Console.ForegroundColor = ramdomcol();
             superior = (repe * dimensiones * 2);
-            inferior = (repe * (dimensiones / 3)+repe-1);
+            inferior = (repe * (dimensiones / 3) + repe - 1);
             ancho = (Console.WindowWidth - superior) / espacios;
             alto = (Console.WindowHeight - inferior) / espacios;
             Console.SetCursorPosition(ancho, alto);
             for (int columna = 0; columna < superior; columna++)
             {
                 Console.Write("*");
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
             }
             for (int fila = 0; fila < inferior; fila++)
             {
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
                 Console.Write("*");
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
             }
             Console.SetCursorPosition(Console.CursorLeft + 1, Console.CursorTop + 1);
             for (int columna = 0; columna < superior; columna++)
             {
                 Console.SetCursorPosition(Console.CursorLeft - 2, Console.CursorTop);
                 Console.Write("*");
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
             }
             for (int fila = 0; fila < inferior; fila++)
             {
                 Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop - 1);
                 Console.Write("*");
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
             }
         }
         Console.SetCursorPosition(0, Console.WindowHeight - 2);
