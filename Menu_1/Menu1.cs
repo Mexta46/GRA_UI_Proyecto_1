@@ -95,6 +95,7 @@ namespace Menu_1
                             salida = false;
                             break;
                         case 4:
+                            Console.Clear();
                             salida = false;
                             break;
                         case 5:

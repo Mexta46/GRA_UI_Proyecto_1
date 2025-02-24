@@ -139,6 +139,7 @@ namespace Menu_1
                             salida = false;
                             break;
                         case 6:
+                            Console.Clear();
                             salida = false;
                             break;
                         case 7:
@@ -201,19 +202,25 @@ namespace Menu_1
 
         public void TablaSenos()
         {
+            int y = 4;
+            int x = 2;
             Console.WriteLine("Tabla de Senos (0° a 90°) - Sin Funciones Propias");
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Grados\tSeno");
 
             for (int angulo = 0; angulo <= 90; angulo++)
             {
+                y++;
+                if (y == (Console.WindowHeight-5))
+                {
+                    x += 17;
+                    y = 4;
+                }
+                Console.SetCursorPosition(x, y);
                 double radianes = ConvertirGradosARadianes(angulo); // Convertir grados a radianes
                 double seno = CalcularSeno(radianes); // Calcular seno usando serie de Taylor
-                Console.WriteLine($"{angulo}\t{seno:F6}"); // Mostrar resultado con 6 decimales
+                Console.WriteLine($"{angulo}    {seno:F6}"); // Mostrar resultado con 6 decimales
             }
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nPresiona Enter para regresar al menú");
         }
 
         // Función para convertir grados a radianes (usamos aproximación de PI)
@@ -264,18 +271,25 @@ namespace Menu_1
         //Programa 2
         public void TablaCosenos()
         {
+            int y = 4;
+            int x = 2;
             Console.WriteLine("Tabla de Cosenos (0° a 90°) - Sin Funciones Propias");
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Grados\tCoseno");
 
             for (int angulo = 0; angulo <= 90; angulo++)
             {
+                y++;
+                if (y == (Console.WindowHeight - 5))
+                {
+                    x += 17;
+                    y = 4;
+                }
+                Console.SetCursorPosition(x, y);
                 double radianes = ConvertirGradosARadianes2(angulo); // Convertir grados a radianes
                 double coseno = CalcularCoseno(radianes); // Calcular coseno usando serie de Taylor
                 Console.WriteLine($"{angulo}\t{coseno:F6}"); // Mostrar resultado con 6 decimales
             }
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nPresiona Enter para regresar al menú");
         }
 
         // Función para convertir grados a radianes (usamos aproximación de PI)
@@ -344,8 +358,6 @@ namespace Menu_1
             // Dibujar el triángulo en consola
             DibujarTriangulo(cateto1, cateto2);
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nPresiona Enter para regresar al menú");
         }
 
         // Método para obtener un cateto con validación
@@ -437,8 +449,6 @@ namespace Menu_1
             double puntoMedioY = (y1 + y2) / 2;
             Console.WriteLine($"Punto medio: ({puntoMedioX:F6}, {puntoMedioY:F6})");
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nPresiona Enter para regresar al menú");
         }
 
         public void ProgramaProyectil()
@@ -495,8 +505,6 @@ namespace Menu_1
             Console.WriteLine($"Distancia máxima recorrida: {distanciaMaxima:F2} m");
             Console.WriteLine($"Tiempo total de vuelo: {tiempoTotal:F2} s");
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nPresiona Enter para regresar al menú");
         }
 
         // Método para obtener datos con validación

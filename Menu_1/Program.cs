@@ -22,6 +22,8 @@ internal class Program
             Console.WriteLine("1.Menu: programas de introduccion");
             Console.SetCursorPosition(10, Console.CursorTop);
             Console.WriteLine("2.Menu: programas de localizacion");
+            Console.SetCursorPosition(10, Console.CursorTop);
+            Console.WriteLine("3.Salir");
             Console.SetCursorPosition((Console.WindowWidth / 2) - 20, Console.WindowHeight - 2);
             Console.WriteLine("Intserte el numero de la opcion elegida:");
             Console.SetCursorPosition((Console.WindowWidth / 2) + 20, Console.WindowHeight - 2);
@@ -38,6 +40,9 @@ internal class Program
                     case 2:
                         Console.Clear();
                         m2.men();
+                        break;
+                    case 3: 
+                        Console.Clear();
                         break;
                     default:
                         Console.Clear();
