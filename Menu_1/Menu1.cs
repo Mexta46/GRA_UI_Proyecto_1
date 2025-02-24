@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Menu_1
 {
@@ -14,35 +15,198 @@ namespace Menu_1
             Console.ForegroundColor = ConsoleColor.Green;
             do
             {
-                Console.WriteLine("-----------------------------------------------");
-                Console.WriteLine("Menu de selección" +
-                    "\n1)cuadros con asteriscos" +
-                    "\n2)Espiral de asteriscos" +
-                    "\nEscribe el numero de la opcion del menu");
-                int opc = Convert.ToInt32(Console.ReadLine());
-                switch (opc)
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 12, 1);
+                Console.WriteLine("Programas de introduccion");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("Menu de selección");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("1)cuadros con asteriscos");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("2)Generar barras con asteriscos");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("3)Espiral de asteriscos");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("4)Regresar al menu anterior");
+                Console.SetCursorPosition(10, Console.CursorTop);
+                Console.WriteLine("5)Salir del programa");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 20, Console.WindowHeight - 3);
+                Console.WriteLine("Escribe el numero de la opcion del menu");
+                Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight - 2);
+                try
                 {
-                    case 1:
-                        Console.Clear();
-                        cuadros();
-                        Console.WriteLine("\n----------------------------------------------");
-                        salida = false;
-                        break;
-                    case 2:
-                        Console.Clear();
-                        espiral();
-                        Console.WriteLine("\n----------------------------------------------");
-                        salida = false;
-                        break;
-                    default:
-                        Console.WriteLine("Error:Opcion no valida");
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        salida = true;
-                        break;
+                    int opc = Convert.ToInt32(Console.ReadLine());
+                    switch (opc)
+                    {
+                        case 1:
+                            Console.Clear();
+                            cuadros();
+                            int selec = seleccion();
+                            if (selec == 1)
+                            {
+                                Console.Clear();
+                            }
+                            else if (selec == 2)
+                            {
+                                Console.Clear();
+                                men();
+                            }
+                            else if (selec == 3)
+                            {
+                                Environment.Exit(0);
+                            }
+                            salida = false;
+                            break;
+                        case 2:
+                            Console.Clear();
+                            barras();
+                            int selec2 = seleccion();
+                            if (selec2 == 1)
+                            {
+                                Console.Clear();
+                            }
+                            else if (selec2 == 2)
+                            {
+                                Console.Clear();
+                                men();
+                            }
+                            else if (selec2 == 3)
+                            {
+                                Environment.Exit(0);
+                            }
+                            salida = false;
+                            break;
+                        case 3:
+                            Console.Clear();
+                            espiral();
+                            int selec3 = seleccion();
+                            if (selec3 == 1)
+                            {
+                                Console.Clear();
+                            }
+                            else if (selec3 == 2)
+                            {
+                                Console.Clear();
+                                men();
+                            }
+                            else if (selec3 == 3)
+                            {
+                                Environment.Exit(0);
+                            }
+                            salida = false;
+                            break;
+                        case 4:
+                            salida = false;
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                            Console.WriteLine("Error:Opcion no valida");
+                            Console.SetCursorPosition(0, 0);
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                    Console.WriteLine("Error:Opcion no valida");
+                    Console.SetCursorPosition(0, 0);
                 }
             } while (salida);
         }
+
+        public int seleccion()
+        {
+            int salida;
+            string opc;
+            bool repeticion = true;
+            do
+            {
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 18, Console.WindowHeight - 3);
+                Console.WriteLine("1-Menu anterior 2-Continuar 3-salida");
+                for (int i = 0; i < Console.WindowWidth; i++)
+                {
+                    Console.SetCursorPosition(i, Console.WindowHeight - 2);
+                    Console.Write(" ");
+                }
+                Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight - 2);
+                opc = Console.ReadLine();
+                if (int.TryParse(opc, out salida))
+                {
+                    if (salida == 1 || salida == 2 || salida == 3)
+                    {
+                        repeticion = false;
+                    }
+                    else
+                    {
+                        Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                        Console.WriteLine("Error:Opcion no valida");
+                    }
+                }
+                else
+                {
+                    Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                    Console.WriteLine("Error:Opcion no valida");
+                }
+            } while (repeticion);
+            return salida;
+        }
+
+        public void barras()
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 7, 0);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Dibujar barras");
+            int width = Console.WindowWidth - 1;
+            int height = Console.WindowHeight;   
+
+            int amplitude = height / 3; 
+            int step = 6;
+            int x = 0;
+
+            while (x + step < width)
+            {
+                Console.ForegroundColor= ConsoleColor.Magenta;
+                for (int i = 0; i < step; i++)
+                {
+                    Console.SetCursorPosition(x + i, amplitude);
+                    Thread.Sleep(100);
+                    Console.Write("*");
+                }
+
+                Console.ForegroundColor = ConsoleColor.White;
+                for (int i = 0; i <= amplitude; i++)
+                {
+                    Console.SetCursorPosition(x + step - 1, amplitude + i);
+                    Thread.Sleep(100);
+                    Console.Write("*");
+                }
+
+                x += step;
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                for (int i = 0; i < step; i++)
+                {
+                    Console.SetCursorPosition(x + i, amplitude + amplitude);
+                    Thread.Sleep(100);
+                    Console.Write("*");
+                }
+
+                Console.ForegroundColor = ConsoleColor.White;
+                for (int i = 0; i <= amplitude; i++)
+                {
+                    Console.SetCursorPosition(x + step - 1, amplitude + amplitude - i);
+                    Thread.Sleep(100);
+                    Console.Write("*");
+                }
+
+                x += step;
+            }
+        }
+
         public static ConsoleColor ramdomcol()
         {
             //return (ConsoleColor)new Random().Next(Enum.GetValues(typeof(ConsoleColor)).Length);
@@ -121,9 +285,6 @@ namespace Menu_1
                     Thread.Sleep(100);
                 }
             }
-            Console.SetCursorPosition(0, Console.WindowHeight - 2);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nListo!!! presiona una tecla para continuar");
         }
 
         public static void espiral()
@@ -173,10 +334,7 @@ namespace Menu_1
                 horizontal += 3;
                 vertical += 2;
             }
-            while (horizontal < Console.WindowWidth - 2 && vertical < Console.WindowHeight - 2);
-            Console.SetCursorPosition(0, Console.WindowHeight - 2);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nListo!!! presiona una tecla para continuar");
+            while (horizontal < Console.WindowWidth - 10 && vertical < Console.WindowHeight - 10);
         }
     }
 }

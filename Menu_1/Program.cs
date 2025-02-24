@@ -6,7 +6,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Menu1 m=new Menu1();
+        Menu1 m1=new Menu1();
+        Menu2 m2 = new Menu2();
         bool s=true;
         Console.ForegroundColor = ConsoleColor.Green;
         do {
@@ -18,9 +19,9 @@ internal class Program
             Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.CursorTop + 1);
             Console.WriteLine("Selecciona una opcion:");
             Console.SetCursorPosition(10, Console.CursorTop);
-            Console.WriteLine("1.Menu 1-programas de introduccion");
+            Console.WriteLine("1.Menu: programas de introduccion");
             Console.SetCursorPosition(10, Console.CursorTop);
-            Console.WriteLine("2.Menu 2-programas de localizacion");
+            Console.WriteLine("2.Menu: programas de localizacion");
             Console.SetCursorPosition((Console.WindowWidth / 2) - 20, Console.WindowHeight - 2);
             Console.WriteLine("Intserte el numero de la opcion elegida:");
             Console.SetCursorPosition((Console.WindowWidth / 2) + 20, Console.WindowHeight - 2);
@@ -32,10 +33,11 @@ internal class Program
                 {
                     case 1:
                         Console.Clear();
-                        m.men();
+                        m1.men();
                         break;
                     case 2:
-
+                        Console.Clear();
+                        m2.men();
                         break;
                     default:
                         Console.Clear();
