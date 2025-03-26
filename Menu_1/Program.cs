@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
-internal class Program
+public class Program
 {
-    private static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Menu1 m1=new Menu1();
         Menu2 m2 = new Menu2();
@@ -42,7 +42,7 @@ internal class Program
                         m2.men();
                         break;
                     case 3: 
-                        Console.Clear();
+                        s = false;
                         break;
                     default:
                         Console.Clear();
