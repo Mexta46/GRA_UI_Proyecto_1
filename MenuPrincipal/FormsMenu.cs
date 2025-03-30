@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FormsFractales;
 
 namespace MenuPrincipal
 {
@@ -39,8 +40,8 @@ namespace MenuPrincipal
 
         private void btnMenu3_Click(object sender, EventArgs e)
         {
-            FormSubMenuFractales frs = new FormSubMenuFractales();
-            frs.Show();
+            FormSubMenuFractales frmFractales = new FormSubMenuFractales();
+            frmFractales.Show();
             this.Hide();
         }
     }

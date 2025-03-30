@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmFractal02";
+            ptbMandelbrot = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)ptbMandelbrot).BeginInit();
+            SuspendLayout();
+            // 
+            // ptbMandelbrot
+            // 
+            ptbMandelbrot.Location = new Point(110, 10);
+            ptbMandelbrot.Margin = new Padding(3, 2, 3, 2);
+            ptbMandelbrot.Name = "ptbMandelbrot";
+            ptbMandelbrot.Size = new Size(481, 412);
+            ptbMandelbrot.TabIndex = 1;
+            ptbMandelbrot.TabStop = false;
+            // 
+            // frmFractal02
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(700, 432);
+            Controls.Add(ptbMandelbrot);
+            Name = "frmFractal02";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Fractal 02";
+            Load += frmFractal02_Load;
+            ((System.ComponentModel.ISupportInitialize)ptbMandelbrot).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox ptbMandelbrot;
     }
 }

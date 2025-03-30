@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FormsFractales\FormsFractales.csproj" />
     <ProjectReference Include="..\Menu_1\Menu_1.csproj" />
   </ItemGroup>
 

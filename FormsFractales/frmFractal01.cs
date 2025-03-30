@@ -18,8 +18,8 @@ namespace FormsFractales
             int height = ptbMandelbrot.Height;
 
             Bitmap bmp = new Bitmap(widht, height);
-            for (int row = 0; row < widht; row++) {
-                for (int col = 0; col < height; col++) {
+            for (int row = 0; row < height; row++) {
+                for (int col = 0; col < widht; col++) {
                     double c_re = (col - widht / 2.0) * 4.0 / widht;
                     double c_im = (row - height / 2.0) * 4.0 / height;
 
