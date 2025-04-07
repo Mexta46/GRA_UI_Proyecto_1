@@ -8,38 +8,121 @@ internal class Program
         int opcion;
         do
         {
-            Console.Clear();
             MostrarMenu();
             Console.SetCursorPosition(2, 12);
-            Console.Write("Seleccione una opción: ");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 20, Console.WindowHeight - 2);
+            Console.WriteLine("Intserte el numero de la opcion elegida:");
+            Console.SetCursorPosition((Console.WindowWidth / 2) + 20, Console.WindowHeight - 2);
             if (int.TryParse(Console.ReadLine(), out opcion))
             {
-                Console.Clear();
 
                 switch (opcion)
                 {
-                    case 1: JuegoAhorcado(); break;
-                    case 2: ContarSignos(); break;
-                    case 3: TransponerMatriz(); break;
-                    case 4: MayorMenorMatriz(); break;
-                    case 5: ParesImpares(); break;
-                    case 6: SumaFilasColumnas(); break;
-                    case 7: MultiplicacionMatrices(); break;
-                    case 8: DesviacionEstandar(); break;
+                    case 1:
+                        do
+                        {
+                            JuegoAhorcado();
+                        } while (submenus() != 1);
+                        break;
+                    case 2:
+                        do
+                        {
+                            ContarSignos();
+                        } while (submenus() != 1);
+                        break;
+                    case 3:
+                        do
+                        {
+                            TransponerMatriz();
+                        } while (submenus() != 1);
+                        break;
+                    case 4:
+                        do
+                        {
+                            MayorMenorMatriz();
+                        } while (submenus() != 1);
+                        break;
+                    case 5:
+                        do
+                        {
+                            ParesImpares();
+                        } while (submenus() != 1);
+                        break;
+                    case 6:
+                        do
+                        {
+                            SumaFilasColumnas();
+                        } while (submenus() != 1);
+                        break;
+                    case 7:
+                        do
+                        {
+                            MultiplicacionMatrices();
+                        } while (submenus() != 1);
+                        break;
+                    case 8:
+                        do
+                        {
+                            DesviacionEstandar();
+                        } while (submenus() != 1);
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.SetCursorPosition((Console.WindowWidth / 2) - 23, Console.WindowHeight - 3);
+                        Console.WriteLine("Error: el valor numerico insertado no es valido");
+                        Console.SetCursorPosition(0, 0);
+                        break;
                 }
 
-                if (opcion != 9)
+            }
+            else
+            {
+                Console.Clear();
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 20, Console.WindowHeight - 3);
+                Console.WriteLine("Error: el valor insertado no es numerico");
+                Console.SetCursorPosition(0, 0);
+            }
+        } while (opcion != 9);
+    }
+
+    static int submenus()
+    {
+        int salida;
+        bool repeticion = true;
+        do
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 18, Console.WindowHeight - 3);
+            Console.WriteLine("1-Menu anterior 2-Continuar 3-salida");
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.SetCursorPosition(i, Console.WindowHeight - 2);
+                Console.Write(" ");
+            }
+            Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight - 2);
+            if (int.TryParse(Console.ReadLine(), out salida))
+            {
+                if (salida == 1 || salida == 2 || salida == 3)
                 {
-                    EscribirEn(2, 26, "Presione una tecla para volver al menú...");
-                    Console.ReadKey();
+                    repeticion = false;
+                }
+                else
+                {
+                    Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                    Console.WriteLine("Error:Opcion no valida");
                 }
             }
             else
             {
-                EscribirEn(2, 26, "Error: Opción no válida. Presione una tecla para continuar...");
-                Console.ReadKey();
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 11, Console.WindowHeight - 4);
+                Console.WriteLine("Error:Opcion no valida");
             }
-        } while (opcion != 9);
+        } while (repeticion);
+        if (salida == 3)
+        {
+            Environment.Exit(0);
+        }
+        Console.Clear();
+        return salida;
     }
 
     static void EscribirEn(int x, int y, string texto)
@@ -98,6 +181,7 @@ internal class Program
     static void JuegoAhorcado()
     {
         string palabra = "computadora";
+        string Titulo = "== Juego del ahorcado ==";
         string adivinada = new string('_', palabra.Length);
         int errores = 0;
         List<char> letrasIncorrectas = new List<char>();
@@ -106,6 +190,7 @@ internal class Program
         {
             Console.Clear();
             DibujoAhorcado(errores);
+            EscribirEn((Console.WindowWidth/2)-(Titulo.Length/2), 0, Titulo);
             EscribirEn(30, 2, $"Palabra: {adivinada}");
             EscribirEn(30, 4, "Letra: ");
             char letra = char.ToLower(Console.ReadKey().KeyChar);
@@ -184,7 +269,7 @@ internal class Program
                         {
                             if (matriz[fi, co] == 0)
                             {
-                                longitud = matriz[fi, co].ToString().Length;
+                                longitud = matriz[fi, co].ToString().Length/2;
                                 Console.SetCursorPosition(Console.CursorLeft + co + longitud, y + fi + 1);
                                 posicionX[co,fi] = Console.CursorLeft;
                                 Console.Write("_");
@@ -207,6 +292,35 @@ internal class Program
                 }
             }
         }
+        Console.SetCursorPosition(x, y);
+        Console.WriteLine($"{nombre}:");
+
+        for (int fi = 0; fi < filas; fi++)
+        {
+            longitud = 0;
+            for (int xc = 0; xc < Console.WindowWidth; xc++)
+            {
+                Console.SetCursorPosition(xc, y + fi + 1);
+                Console.Write(" ");
+            }
+            Console.SetCursorPosition(x, y + fi + 1);
+            Console.Write("|");
+            for (int co = 0; co < columnas; co++)
+            {
+                if (matriz[fi, co] == 0)
+                {
+                    longitud = matriz[fi, co].ToString().Length / 2;
+                    Console.SetCursorPosition(Console.CursorLeft + co + longitud, y + fi + 1);
+                    Console.Write("_");
+                }
+                else
+                {
+                    Console.Write($" {matriz[fi, co]} ");
+
+                }
+            }
+            Console.Write("|");
+        }
 
         return matriz;
     }
@@ -214,6 +328,9 @@ internal class Program
 
     static void ContarSignos()
     {
+        Console.Clear();
+        string Titulo = "== Contar positivos, negativos y ceros ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int m = SolicitarEntero(2, 2, "Filas: ");
         int n = SolicitarEntero(2, 3, "Columnas: ");
         int centroX = (Console.WindowWidth - (n * 3 + 4)) / 2;
@@ -237,6 +354,9 @@ internal class Program
 
     static void TransponerMatriz()
     {
+        Console.Clear();
+        string Titulo = "== Transposición de matriz ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int m = SolicitarEntero(2, 2, "Filas: ");
         int n = SolicitarEntero(2, 3, "Columnas: ");
 
@@ -253,6 +373,9 @@ internal class Program
 
     static void MayorMenorMatriz()
     {
+        Console.Clear();
+        string Titulo = "== Mayor y menor en matriz ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int m = SolicitarEntero(2, 2, "Filas: ");
         int n = SolicitarEntero(2, 3, "Columnas: ");
         int centroX = (Console.WindowWidth - (n * 3 + 4)) / 2;
@@ -275,6 +398,9 @@ internal class Program
 
     static void ParesImpares()
     {
+        Console.Clear();
+        string Titulo = "== Suma y promedio de pares e impares ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int m = SolicitarEntero(2, 2, "Filas: ");
         int n = SolicitarEntero(2, 3, "Columnas: ");
         int centroX = (Console.WindowWidth - (n * 3 + 4)) / 2;
@@ -312,6 +438,9 @@ internal class Program
 
     static void SumaFilasColumnas()
     {
+        Console.Clear();
+        string Titulo = "== Suma de filas y columnas en matriz 3x3 ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int[] filas = new int[3];
         int[] columnas = new int[3];
         int centroX = (Console.WindowWidth - (3 * 3 + 4)) / 2;
@@ -330,6 +459,9 @@ internal class Program
 
     static void MultiplicacionMatrices()
     {
+        Console.Clear();
+        string Titulo = "== Multiplicación de matrices ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int m = SolicitarEntero(2, 2, "Filas de A: ");
         int n = SolicitarEntero(2, 3, "Columnas de A / Filas de B: ");
         int p = SolicitarEntero(2, 4, "Columnas de B: ");
@@ -359,6 +491,9 @@ internal class Program
 
     static void DesviacionEstandar()
     {
+        Console.Clear();
+        string Titulo = "== Desviación estándar ==";
+        EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
         int n = SolicitarEntero(2, 2, "Cantidad de elementos: ");
         double[] datos = new double[n];
         double suma = 0;
@@ -382,12 +517,29 @@ internal class Program
 
     static int SolicitarEntero(int x, int y, string texto)
     {
-        for (int xc = 0; xc < Console.WindowWidth; xc++)
-        {
-            Console.SetCursorPosition(xc, y);
-            Console.Write(" ");
-        }
-        EscribirEn(x, y, texto);
-        return int.Parse(Console.ReadLine());
+        int salida;
+        bool repeticion = true;
+        do {
+            for (int xc = 0; xc < Console.WindowWidth; xc++)
+            {
+                Console.SetCursorPosition(xc, y);
+                Console.Write(" ");
+            }
+            EscribirEn(x, y, texto);
+            if(int.TryParse(Console.ReadLine(), out salida))
+            {
+                for (int xc = 0; xc < Console.WindowWidth; xc++)
+                {
+                    Console.SetCursorPosition(xc, 1);
+                    Console.Write(" ");
+                }
+                repeticion = false;
+            }
+            else
+            {
+                EscribirEn((Console.WindowWidth / 2) - 20, 1, "Error: el valor insertado no es numerico");
+            }
+        } while (repeticion);
+        return salida;
     }
 }
