@@ -154,7 +154,6 @@ internal class Program
     static int[,] RellenarMatrizInteractiva(string nombre, int filas, int columnas, int x, int y)
     {
         int longitud;
-        int positionxAnt;
         int[,] matriz = new int[filas, columnas];
 
         for (int i = 0; i < filas; i++)
@@ -167,9 +166,9 @@ internal class Program
             {
                 while (true)
                 {
-                    positionxAnt = 0;
                     Console.SetCursorPosition(x, y);
                     Console.WriteLine($"{nombre}:");
+                    int[,] posicionX = new int[columnas,filas];
 
                     for (int fi = 0; fi < filas; fi++)
                     {
@@ -187,19 +186,18 @@ internal class Program
                             {
                                 longitud = matriz[fi, co].ToString().Length;
                                 Console.SetCursorPosition(Console.CursorLeft + co + longitud, y + fi + 1);
+                                posicionX[co,fi] = Console.CursorLeft;
                                 Console.Write("_");
                             }
                             else
                             {
                                 Console.Write($" {matriz[fi, co]} ");
-                                longitud = matriz[fi, co].ToString().Length;
-                                positionxAnt = longitud;
+
                             }
                         }
-                        Console.Write(" |");
+                        Console.Write("|");
                     }
-
-                    Console.SetCursorPosition((x + 2 + j)+positionxAnt, y + i + 1);
+                    Console.SetCursorPosition(posicionX[j,i], y + i + 1);
                     string input = Console.ReadLine();
                     if (int.TryParse(input, out int valor))
                     {
