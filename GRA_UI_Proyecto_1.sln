@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsGraficos", "FormsLinea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPrincipal", "MenuPrincipal\MenuPrincipal.csproj", "{424F1638-E65C-4372-91DF-AE0594D787AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu_2", "Menu_2\Menu_2.csproj", "{B164E262-513C-4162-9763-A84D3108223F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{424F1638-E65C-4372-91DF-AE0594D787AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424F1638-E65C-4372-91DF-AE0594D787AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424F1638-E65C-4372-91DF-AE0594D787AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B164E262-513C-4162-9763-A84D3108223F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B164E262-513C-4162-9763-A84D3108223F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B164E262-513C-4162-9763-A84D3108223F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B164E262-513C-4162-9763-A84D3108223F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6BA3816-AE55-423F-AF06-D9AB09C8388F}
 	EndGlobalSection
 EndGlobal
