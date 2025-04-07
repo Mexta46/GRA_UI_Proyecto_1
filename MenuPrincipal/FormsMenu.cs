@@ -35,7 +35,16 @@ namespace MenuPrincipal
 
         private void btnMenu2_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string rutaConsola = @"Menu_2.exe";
+                Process.Start(rutaConsola);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la consola: " + ex.Message);
+            }
         }
 
         private void btnMenu3_Click(object sender, EventArgs e)

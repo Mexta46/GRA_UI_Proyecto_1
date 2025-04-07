@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FormsFractales\FormsFractales.csproj" />
     <ProjectReference Include="..\Menu_1\Menu_1.csproj" />
+    <ProjectReference Include="..\Menu_2\Menu_2.csproj" />
   </ItemGroup>
 
 </Project>
