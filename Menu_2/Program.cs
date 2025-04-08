@@ -184,14 +184,22 @@ internal class Program
         string Titulo = "== Juego del ahorcado ==";
         string adivinada = new string('_', palabra.Length);
         int errores = 0;
-        List<char> letrasIncorrectas = new List<char>();
+
+        char[] letrasIncorrectas = new char[26];
+        int letrasIncorrectasCount = 0;
 
         while (errores < 6 && adivinada.Contains('_'))
         {
             Console.Clear();
             DibujoAhorcado(errores);
-            EscribirEn((Console.WindowWidth/2)-(Titulo.Length/2), 0, Titulo);
+            EscribirEn((Console.WindowWidth / 2) - (Titulo.Length / 2), 0, Titulo);
             EscribirEn(30, 2, $"Palabra: {adivinada}");
+
+            string letrasFallidas = "";
+            for (int i = 0; i < letrasIncorrectasCount; i++)
+                letrasFallidas += letrasIncorrectas[i] + " ";
+            EscribirEn(30, 3, $"Incorrectas: {letrasFallidas}");
+
             EscribirEn(30, 4, "Letra: ");
             char letra = char.ToLower(Console.ReadKey().KeyChar);
 
@@ -205,10 +213,20 @@ internal class Program
             }
             else
             {
-                if (!letrasIncorrectas.Contains(letra))
+                bool yaFueIngresada = false;
+                for (int i = 0; i < letrasIncorrectasCount; i++)
+                {
+                    if (letrasIncorrectas[i] == letra)
+                    {
+                        yaFueIngresada = true;
+                        break;
+                    }
+                }
+
+                if (!yaFueIngresada)
                 {
                     errores++;
-                    letrasIncorrectas.Add(letra);
+                    letrasIncorrectas[letrasIncorrectasCount++] = letra;
                 }
             }
         }
@@ -220,6 +238,7 @@ internal class Program
         else
             EscribirEn(2, 15, "¡Ganaste! La palabra es: " + palabra);
     }
+
 
     static void DibujoAhorcado(int fallos)
     {
