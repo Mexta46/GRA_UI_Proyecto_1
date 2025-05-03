@@ -32,7 +32,7 @@
             btnMenu1 = new Button();
             btnMenu2 = new Button();
             btnMenu3 = new Button();
-            button4 = new Button();
+            btnMenu4 = new Button();
             button5 = new Button();
             SuspendLayout();
             // 
@@ -75,14 +75,15 @@
             btnMenu3.UseVisualStyleBackColor = true;
             btnMenu3.Click += btnMenu3_Click;
             // 
-            // button4
+            // btnMenu4
             // 
-            button4.Location = new Point(146, 247);
-            button4.Name = "button4";
-            button4.Size = new Size(142, 52);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            btnMenu4.Location = new Point(146, 247);
+            btnMenu4.Name = "btnMenu4";
+            btnMenu4.Size = new Size(142, 52);
+            btnMenu4.TabIndex = 4;
+            btnMenu4.Text = "Menu 4\r\nGraficos";
+            btnMenu4.UseVisualStyleBackColor = true;
+            btnMenu4.Click += btnMenu4_Click;
             // 
             // button5
             // 
@@ -99,7 +100,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(btnMenu4);
             Controls.Add(btnMenu3);
             Controls.Add(btnMenu2);
             Controls.Add(btnMenu1);
@@ -117,7 +118,7 @@
         private Button btnMenu1;
         private Button btnMenu2;
         private Button btnMenu3;
-        private Button button4;
+        private Button btnMenu4;
         private Button button5;
     }
 }

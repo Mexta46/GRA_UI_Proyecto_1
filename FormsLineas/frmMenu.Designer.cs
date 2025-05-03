@@ -28,12 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmMenu";
+            btnMenu1 = new Button();
+            lblTitulo = new Label();
+            SuspendLayout();
+            // 
+            // btnMenu1
+            // 
+            btnMenu1.Location = new Point(148, 200);
+            btnMenu1.Name = "btnMenu1";
+            btnMenu1.Size = new Size(142, 57);
+            btnMenu1.TabIndex = 7;
+            btnMenu1.Text = "Menu 1\r\nGrafica movil";
+            btnMenu1.UseVisualStyleBackColor = true;
+            btnMenu1.Click += btnMenu1_Click;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Location = new Point(349, 112);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(124, 20);
+            lblTitulo.TabIndex = 6;
+            lblTitulo.Text = "Menu de graficos";
+            // 
+            // frmMenu
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnMenu1);
+            Controls.Add(lblTitulo);
+            Name = "frmMenu";
+            Text = "frmMenu";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+        private Button btnMenu1;
+        private Label lblTitulo;
     }
 }

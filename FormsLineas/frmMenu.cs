@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsFractales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace FormsGraficos
         public frmMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnMenu1_Click(object sender, EventArgs e)
+        {
+            frmDibujoMovil frmDibujoMovil = new frmDibujoMovil();
+            frmDibujoMovil.Show();
         }
     }
 }
