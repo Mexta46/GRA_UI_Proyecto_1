@@ -30,6 +30,7 @@
         {
             btnMenu1 = new Button();
             lblTitulo = new Label();
+            btnMenu2 = new Button();
             SuspendLayout();
             // 
             // btnMenu1
@@ -51,11 +52,22 @@
             lblTitulo.TabIndex = 6;
             lblTitulo.Text = "Menu de graficos";
             // 
+            // btnMenu2
+            // 
+            btnMenu2.Location = new Point(529, 189);
+            btnMenu2.Name = "btnMenu2";
+            btnMenu2.Size = new Size(200, 79);
+            btnMenu2.TabIndex = 8;
+            btnMenu2.Text = "Menu 2\r\nGrafica de transformaciones";
+            btnMenu2.UseVisualStyleBackColor = true;
+            btnMenu2.Click += btnMenu2_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnMenu2);
             Controls.Add(btnMenu1);
             Controls.Add(lblTitulo);
             Name = "frmMenu";
@@ -67,5 +79,6 @@
         #endregion
         private Button btnMenu1;
         private Label lblTitulo;
+        private Button btnMenu2;
     }
 }

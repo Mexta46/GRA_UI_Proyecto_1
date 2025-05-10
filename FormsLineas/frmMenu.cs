@@ -23,5 +23,11 @@ namespace FormsGraficos
             frmDibujoMovil frmDibujoMovil = new frmDibujoMovil();
             frmDibujoMovil.Show();
         }
+
+        private void btnMenu2_Click(object sender, EventArgs e)
+        {
+            frmTransformacines frmTransformacines = new frmTransformacines();
+            frmTransformacines.Show();
+        }
     }
 }
