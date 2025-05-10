@@ -49,9 +49,6 @@
             btnReflexion = new Button();
             btnRotar = new Button();
             btnEscalar = new Button();
-            dgvCoordenadas = new DataGridView();
-            Original = new DataGridViewTextBoxColumn();
-            Transformada = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label1 = new Label();
             txtDy = new TextBox();
@@ -76,7 +73,17 @@
             label14 = new Label();
             panel6 = new Panel();
             label15 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvCoordenadas).BeginInit();
+            panel7 = new Panel();
+            lblTransformadaz = new Label();
+            lblTransformaday = new Label();
+            lblTransformadax = new Label();
+            label22 = new Label();
+            lblOriginalz = new Label();
+            lblOriginaly = new Label();
+            lblOriginalx = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label16 = new Label();
             ((System.ComponentModel.ISupportInitialize)Plano).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -84,6 +91,7 @@
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // cmbReflexion
@@ -295,35 +303,6 @@
             btnEscalar.UseVisualStyleBackColor = false;
             btnEscalar.Click += btnEscalar_Click;
             // 
-            // dgvCoordenadas
-            // 
-            dgvCoordenadas.AllowUserToAddRows = false;
-            dgvCoordenadas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCoordenadas.Columns.AddRange(new DataGridViewColumn[] { Original, Transformada });
-            dgvCoordenadas.Location = new Point(809, 314);
-            dgvCoordenadas.Margin = new Padding(2);
-            dgvCoordenadas.Name = "dgvCoordenadas";
-            dgvCoordenadas.ReadOnly = true;
-            dgvCoordenadas.RowHeadersWidth = 62;
-            dgvCoordenadas.Size = new Size(355, 236);
-            dgvCoordenadas.TabIndex = 43;
-            // 
-            // Original
-            // 
-            Original.HeaderText = "Original";
-            Original.MinimumWidth = 8;
-            Original.Name = "Original";
-            Original.ReadOnly = true;
-            Original.Width = 150;
-            // 
-            // Transformada
-            // 
-            Transformada.HeaderText = "Transformada";
-            Transformada.MinimumWidth = 8;
-            Transformada.Name = "Transformada";
-            Transformada.ReadOnly = true;
-            Transformada.Width = 150;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -363,7 +342,7 @@
             // Lista
             // 
             Lista.FormattingEnabled = true;
-            Lista.Location = new Point(792, 574);
+            Lista.Location = new Point(4, 277);
             Lista.Margin = new Padding(2);
             Lista.Name = "Lista";
             Lista.Size = new Size(194, 164);
@@ -418,7 +397,7 @@
             // Plano
             // 
             Plano.BorderStyle = BorderStyle.FixedSingle;
-            Plano.Location = new Point(21, 13);
+            Plano.Location = new Point(11, 13);
             Plano.Margin = new Padding(2);
             Plano.Name = "Plano";
             Plano.Size = new Size(748, 724);
@@ -486,7 +465,7 @@
             panel3.Controls.Add(rbtMostrarDis);
             panel3.Controls.Add(rbtMostrarEn);
             panel3.Controls.Add(label12);
-            panel3.Location = new Point(991, 574);
+            panel3.Location = new Point(203, 277);
             panel3.Name = "panel3";
             panel3.Size = new Size(194, 125);
             panel3.TabIndex = 69;
@@ -588,24 +567,130 @@
             label15.TabIndex = 58;
             label15.Text = "Controles";
             // 
+            // panel7
+            // 
+            panel7.Controls.Add(lblTransformadaz);
+            panel7.Controls.Add(lblTransformaday);
+            panel7.Controls.Add(lblTransformadax);
+            panel7.Controls.Add(label22);
+            panel7.Controls.Add(lblOriginalz);
+            panel7.Controls.Add(lblOriginaly);
+            panel7.Controls.Add(lblOriginalx);
+            panel7.Controls.Add(label18);
+            panel7.Controls.Add(label17);
+            panel7.Controls.Add(label16);
+            panel7.Controls.Add(panel3);
+            panel7.Controls.Add(Lista);
+            panel7.Location = new Point(768, 288);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(421, 449);
+            panel7.TabIndex = 73;
+            // 
+            // lblTransformadaz
+            // 
+            lblTransformadaz.AutoSize = true;
+            lblTransformadaz.Location = new Point(207, 204);
+            lblTransformadaz.Name = "lblTransformadaz";
+            lblTransformadaz.Size = new Size(19, 20);
+            lblTransformadaz.TabIndex = 79;
+            lblTransformadaz.Text = "z:";
+            // 
+            // lblTransformaday
+            // 
+            lblTransformaday.AutoSize = true;
+            lblTransformaday.Location = new Point(207, 173);
+            lblTransformaday.Name = "lblTransformaday";
+            lblTransformaday.Size = new Size(19, 20);
+            lblTransformaday.TabIndex = 78;
+            lblTransformaday.Text = "y:";
+            // 
+            // lblTransformadax
+            // 
+            lblTransformadax.AutoSize = true;
+            lblTransformadax.Location = new Point(207, 141);
+            lblTransformadax.Name = "lblTransformadax";
+            lblTransformadax.Size = new Size(19, 20);
+            lblTransformadax.TabIndex = 77;
+            lblTransformadax.Text = "x:";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(203, 104);
+            label22.Name = "label22";
+            label22.Size = new Size(100, 20);
+            label22.TabIndex = 76;
+            label22.Text = "Transformada";
+            // 
+            // lblOriginalz
+            // 
+            lblOriginalz.AutoSize = true;
+            lblOriginalz.Location = new Point(18, 204);
+            lblOriginalz.Name = "lblOriginalz";
+            lblOriginalz.Size = new Size(19, 20);
+            lblOriginalz.TabIndex = 75;
+            lblOriginalz.Text = "z:";
+            // 
+            // lblOriginaly
+            // 
+            lblOriginaly.AutoSize = true;
+            lblOriginaly.Location = new Point(18, 173);
+            lblOriginaly.Name = "lblOriginaly";
+            lblOriginaly.Size = new Size(19, 20);
+            lblOriginaly.TabIndex = 74;
+            lblOriginaly.Text = "y:";
+            // 
+            // lblOriginalx
+            // 
+            lblOriginalx.AutoSize = true;
+            lblOriginalx.Location = new Point(18, 141);
+            lblOriginalx.Name = "lblOriginalx";
+            lblOriginalx.Size = new Size(19, 20);
+            lblOriginalx.TabIndex = 73;
+            lblOriginalx.Text = "x:";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(14, 104);
+            label18.Name = "label18";
+            label18.Size = new Size(62, 20);
+            label18.TabIndex = 72;
+            label18.Text = "Original";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(14, 68);
+            label17.Name = "label17";
+            label17.Size = new Size(146, 20);
+            label17.TabIndex = 71;
+            label17.Text = "Coordenadas figuras";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(14, 29);
+            label16.Name = "label16";
+            label16.Size = new Size(140, 20);
+            label16.TabIndex = 70;
+            label16.Text = "Datos de las figuras";
+            // 
             // frmTransformacines
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1539, 748);
+            Controls.Add(panel7);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel4);
-            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(dgvCoordenadas);
-            Controls.Add(Lista);
             Controls.Add(Plano);
             Name = "frmTransformacines";
             Text = "frmTransformacines";
             Load += frmTransformacines_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvCoordenadas).EndInit();
             ((System.ComponentModel.ISupportInitialize)Plano).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -619,6 +704,8 @@
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -644,9 +731,6 @@
         private Button btnReflexion;
         private Button btnRotar;
         private Button btnEscalar;
-        private DataGridView dgvCoordenadas;
-        private DataGridViewTextBoxColumn Original;
-        private DataGridViewTextBoxColumn Transformada;
         private Label label2;
         private Label label1;
         private TextBox txtDy;
@@ -671,5 +755,16 @@
         private Label label14;
         private Panel panel6;
         private Label label15;
+        private Panel panel7;
+        private Label label16;
+        private Label lblOriginalz;
+        private Label lblOriginaly;
+        private Label lblOriginalx;
+        private Label label18;
+        private Label label17;
+        private Label lblTransformadaz;
+        private Label lblTransformaday;
+        private Label lblTransformadax;
+        private Label label22;
     }
 }
